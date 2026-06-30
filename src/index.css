@@ -1,0 +1,99 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #014f9e;
+  --primary-dark: #013d7a;
+  --primary-light: #ddeeff;
+  --gold: #f5c518;
+  --gold-dark: #d4a400;
+  --gold-light: #fffbe6;
+  --red: #c4272f;
+  --red-light: #fdeaea;
+  --bg: #faf5ec;
+  --bg2: #f3ede0;
+  --card: #ffffff;
+  --text: #1a1825;
+  --text-muted: #6b7280;
+  --border: #e4ddd0;
+  --border-focus: #014f9e;
+  --shadow-sm: 0 2px 8px rgba(1,79,158,0.07);
+  --shadow: 0 4px 20px rgba(1,79,158,0.1);
+  --shadow-lg: 0 8px 36px rgba(1,79,158,0.15);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --font: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #c5bdb0; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.95); opacity: 0; }
+  60%  { transform: scale(1.02); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.fade-up { animation: fadeUp 0.38s ease both; }
+.pop     { animation: pop 0.35s ease both; }
+
+.skeleton {
+  background: linear-gradient(90deg, #ede8df 25%, #e4ddd0 50%, #ede8df 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-blue { background: var(--primary-light); color: var(--primary); }
+.badge-gold { background: var(--gold-light);    color: var(--gold-dark); }
+.badge-red  { background: var(--red-light);     color: var(--red); }
+.badge-green { background: #e6f7ee; color: #14783e; }
+.badge-purple { background: #f0ebff; color: #6930c3; }
+
+button { cursor: pointer; }
+input, button { font-family: var(--font); }
